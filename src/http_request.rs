@@ -30,11 +30,11 @@ pub fn http_request_method_string(method: &HttpRequestMethod) -> &'static str {
 }
 
 pub struct HttpRequest {
-    method: HttpRequestMethod,
-    path: String,
-    http_version: HttpVersion,
-    headers: HashMap<String, String>,
-    body: String
+    pub method: HttpRequestMethod,
+    pub path: String,
+    pub http_version: HttpVersion,
+    pub headers: HashMap<String, String>,
+    pub body: String
 }
 
 impl HttpRequest {
@@ -47,26 +47,6 @@ impl HttpRequest {
             headers: HashMap::new(),
             body: String::from("")
         }
-    }
-
-    pub fn set_method(&mut self, method: HttpRequestMethod) {
-        self.method = method;
-    }
-
-    pub fn set_path(&mut self, path: &String) {
-        self.path = path.to_string();
-    }
-
-    pub fn set_http_version(&mut self, version: HttpVersion) {
-        self.http_version = version;
-    }
-
-    pub fn add_header(&mut self, name: &String, value: &String) {
-        self.headers.insert(name.to_string(), value.to_string());
-    }
-
-    pub fn set_body(&mut self, body: &String) {
-        self.body = body.to_string();
     }
 
     pub fn to_string(&self) -> String {

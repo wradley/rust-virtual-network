@@ -2,7 +2,8 @@ mod http_request;
 
 fn main() {
     let mut req = http_request::HttpRequest::new();
-    req.set_path(&"/path".to_string());
-    req.add_header(&"Accept-Language".to_string(), &"en".to_string());
+    req.path = String::from("/path");
+    req.headers.insert(String::from("Accept_Language"), String::from("en"));
+
     println!("{}", req.to_string());
 }
